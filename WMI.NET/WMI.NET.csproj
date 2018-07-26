@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8563145F-1F92-48B9-A2DD-234A586DBE47}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WMI.NET</RootNamespace>
+    <AssemblyName>WMI.NET</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management.Instrumentation" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Credentials.cs" />
+    <Compile Include="QueryProvider\IWMIQueryProvider.cs" />
+    <Compile Include="ManagementScopeFactory.cs" />
+    <Compile Include="Model\CIM\LogicalDevice\CIM_LogicalDevice.cs" />
+    <Compile Include="Model\CIM\CIM_LogicalDisk.cs" />
+    <Compile Include="Model\CIM\CIM_LogicalElement.cs" />
+    <Compile Include="Model\CIM\LogicalDevice\EAvailability.cs" />
+    <Compile Include="Model\CIM\LogicalDevice\EConfigManagerErrorCode.cs" />
+    <Compile Include="Model\CIM\LogicalDevice\EPowerManagementCapabilities.cs" />
+    <Compile Include="Model\CIM\LogicalDevice\EStatusInfo.cs" />
+    <Compile Include="Model\CIM\ManagementSystemElement\CIM_ManagedSystemElement.cs" />
+    <Compile Include="Model\CIM\ManagementSystemElement\EHealthState.cs" />
+    <Compile Include="Model\CIM\StorageExtend\CIM_StorageExtent.cs" />
+    <Compile Include="Model\CIM\StorageExtend\EAccess.cs" />
+    <Compile Include="Model\Win32\OperatingSystem\FileSystem\LogicalDisk\EDriveType.cs" />
+    <Compile Include="Model\Shared\IWMIClass.cs" />
+    <Compile Include="QueryProvider\LocalWMIQueryProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\Win32\OperatingSystem\FileSystem\LogicalDisk\Win32_LogicalDisk.cs" />
+    <Compile Include="Model\Shared\Attributes\WMIClassName.cs" />
+    <Compile Include="QueryProvider\RemoteWMIQueryProvider.cs" />
+    <Compile Include="QueryProvider\WMIQueryProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{6185A686-033E-46C8-95A5-90B05933E89D}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
